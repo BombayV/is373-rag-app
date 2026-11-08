@@ -1,0 +1,62 @@
+[
+  {
+    "id": "S01",
+    "title": "Lab network",
+    "path": "corpus/s01-network.md",
+    "origin": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s01-network.md",
+    "author": "AI-authored project fixture",
+    "version": "1",
+    "date": "2026-11-08",
+    "permission": "Original project fixture prepared for this exercise; no third-party prose copied",
+    "kind": "synthetic",
+    "sha256": "314d4806ead92fb55cc6d3a4f1ca7cf1649e891491751eab273e1cfed6ab10d5"
+  },
+  {
+    "id": "S02",
+    "title": "Lab request route",
+    "path": "corpus/s02-routing.md",
+    "origin": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s02-routing.md",
+    "author": "AI-authored project fixture",
+    "version": "1",
+    "date": "2026-11-08",
+    "permission": "Original project fixture prepared for this exercise; no third-party prose copied",
+    "kind": "synthetic",
+    "sha256": "a390b90820d1df47b95a369596a8ce335241caba35b834ef8375439a9579ad50"
+  },
+  {
+    "id": "S03",
+    "title": "Lab configuration provider",
+    "path": "corpus/s03-providers.md",
+    "origin": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s03-providers.md",
+    "author": "AI-authored project fixture",
+    "version": "1",
+    "date": "2026-11-08",
+    "permission": "Original project fixture prepared for this exercise; no third-party prose copied",
+    "kind": "synthetic",
+    "sha256": "b4ec61be0b48ecdd01180d82379c3d3f0035b85c238284a97f48afa460f5b769"
+  },
+  {
+    "id": "S04",
+    "title": "Lab TLS ownership",
+    "path": "corpus/s04-tls.md",
+    "origin": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s04-tls.md",
+    "author": "AI-authored project fixture",
+    "version": "1",
+    "date": "2026-11-08",
+    "permission": "Original project fixture prepared for this exercise; no third-party prose copied",
+    "kind": "synthetic",
+    "sha256": "b63884648e1b90df7f9080941c2c4a185f80f3f9c69f85151491c0635080e11a"
+  },
+  {
+    "id": "S05",
+    "title": "Lab verification policy",
+    "path": "corpus/s05-checks.md",
+    "origin": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s05-checks.md",
+    "author": "AI-authored project fixture",
+    "version": "1",
+    "date": "2026-11-08",
+    "permission": "Original project fixture prepared for this exercise; no third-party prose copied",
+    "kind": "synthetic",
+    "sha256": "1e022b26ea8b7043c4e11c215ab10accd2c1a1f5d55359001640446ab56e7cf4"
+  }
+]

@@ -60,3 +60,9 @@ Build November 24: small hosted import → retrieval → chat journey using real
 ## Help and limitations
 
 AI drafted this proposed plan from the selected topic. Learner architecture reasoning remains pending. No application or evaluation success is claimed. [Requirement sources](review-1-sources.md).
+
+## Review 1 prepared artifacts
+
+[Architecture proposal](architecture-plan.md) · [Five permitted synthetic source fixtures](../corpus/manifest.json) · [Expected-evidence query set](evaluation-plan.md) · [Actual chunk experiment](chunk-experiment.md) · [Executed Plan checks](plan-checks.md).
+
+Current next step: learner architecture explanation/adoption and model-access decision or explicitly recorded workshop question. Earlier pending lists describe the initial scaffold; the linked files are the current evidence. Hosted URLs remain unbuilt.
