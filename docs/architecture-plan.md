@@ -2,7 +2,7 @@
 
 ## Choice and alternatives
 
-Recommend vector-first retrieval for passage-oriented explanations and paraphrases. Use a bounded keyword baseline to test whether semantic retrieval improves Q02 without degrading exact identifiers in Q01/Q03. Graph-only would make explicit route relationships easy to traverse but needs validated entities/edges and question-to-query rules; five short documents do not yet justify operating two databases. Combined retrieval remains a later experiment, not required scope. Learner adoption/reason pending.
+Recommend vector-first retrieval for passage-oriented explanations and paraphrases. Use a bounded keyword baseline to test whether semantic retrieval improves Q02 without degrading exact identifiers in Q01/Q03. Graph-only would make explicit route relationships easy to traverse but needs validated entities/edges and question-to-query rules; five short documents do not yet justify operating two databases. Combined retrieval remains a later experiment, not required scope. Learner adopted this AI-assisted choice and reason on November 8, 2026; see the [reviewed decision record](https://github.com/BombayV/is373-portfolio/blob/main/docs/learner-decisions.md).
 
 Proposed stack: FastAPI interface/API; Qdrant private persistent vector store; a compatible local embedding model; an available generation provider behind the server. Exact embedding/generation model, package versions and provider access must be confirmed before Build. No paid subscription selected. No benchmark result claimed. Smaller scope fallback: keep only these five fixtures and reduce context/concurrency, retaining real retrieval and generation for Build.
 

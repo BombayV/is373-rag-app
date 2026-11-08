@@ -17,8 +17,8 @@ The old Traefik routing overview URL redirects to its dynamic-configuration-meth
 
 ## Current decision status
 
-Vector-first is an AI proposal, not a learner-approved architecture. Compare exact identifier retrieval against paraphrase retrieval before adding complexity. Graph research is required even if no graph database is implemented. No benchmark, embedding, database, ingestion, query or generated-answer result exists yet.
+Vector-first was proposed by AI and adopted by the learner on November 8; see architecture-plan.md for the current decision. Compare exact identifier retrieval against paraphrase retrieval before adding complexity. Graph research is required even if no graph database is implemented. No benchmark, embedding, database, ingestion, query or generated-answer result exists yet.
 
 ## Outstanding evidence
 
-Verify corpus licenses and exact versions; inspect complete vector-search documentation; create permitted sample documents; compare chunk boundaries; record expected passages for five queries; confirm model access/budget and host resources. Source availability is not reuse permission.
+Five original synthetic fixtures, a chunk experiment and expected query evidence are now prepared. Confirm model access/budget, exact versions and host resources. Further vendor-specific implementation research remains for Build. Source availability is not reuse permission.
