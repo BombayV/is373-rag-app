@@ -33,3 +33,11 @@ Public resolver 1.1.1.1 returned Cloudflare proxy addresses for both agreed host
 ## Runtime capacity finding
 
 SSH recovered. Portfolio image is373-portfolio:037256b built successfully from committed source; base nginx digest sha256:a8b39bd9cf0f83869a2162827a0caf6137ddf759d50a171451b335cecc87d236. Starting its new container failed while creating a runtime FIFO: /run tmpfs has 97 MB used of 97 MB and 123463/123463 inodes used; root disk still has 17 GB free. New portfolio container is Created, not running; no new route installed. Root-owned runtime directories dominate /run usage. Existing selected ExecIDs counts were zero; this does not establish which runtime files are safe to delete. All five existing services have always/unless-stopped restart policies. Controlled reboot with existing-site recovery checks proposed for explicit learner approval because it affects unrelated services. No reboot, deletion or update performed yet.
+
+## Approved reboot and incomplete recovery
+
+Learner explicitly approved one controlled reboot and recovery checks. Sent sudo systemctl reboot once. Pre-reboot boot ID b6db6b3c-6e2f-45f9-9fd2-4b46b2adb1eb; all five existing containers were running. Command returned success. Subsequent SSH first refused, then timed out; public CMS returned Cloudflare HTTP 522. Recovery and /run clearance not yet verified. No second reboot, route install, host update or runtime-file deletion performed. Requested cloud VM status/IP and short boot-error information; deployment remains paused at this actual boundary.
+
+## Server recovered; private model access pending
+
+Confirmed reboot recovery and all four existing public app routes at HTTP 200. /run recovered. Portfolio foundation is publicly available at https://portfolio.bombayv.com/ . RAG source bundle uploaded to its own directory; private interactive key-entry helper is ready. No keys were supplied to AI, and no RAG database/container/model calls have run. Waiting for learner to enter Groq/Jina keys privately, then verify availability/free quota, import and actual query traces before claiming a working hosted RAG journey.
