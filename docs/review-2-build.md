@@ -19,3 +19,9 @@ Next: learner confirms unused hostnames and creates free-tier API access private
 ## Deployment boundary update
 
 Learner approved portfolio.bombayv.com and rag.bombayv.com if unused. No existing file route matched either hostname; both DNS lookups failed during this check. Existing CMS homepage and calculator health returned HTTP 200. No routes/containers changed. DNS A records and private free-tier API-key setup are pending.
+
+## Provider correction
+
+Learner reports Google AI Studio requires billing in their setup. Do not enable billing. Revised implementation uses Groq Free for generation and Jina free-token allowance for embeddings, with no automatic paid fallback. Default candidates: openai/gpt-oss-20b and jina-embeddings-v5-text-nano, 768 normalized dimensions. Model/account eligibility and actual calls remain unverified until private keys are configured. Jina free tokens are finite, not unlimited recurring access. Old Gemini notes above record the earlier candidate and are superseded. Both DNS names still failed a local lookup immediately after learner reported creating records; propagation/configuration must be verified.
+
+Official sources inspected November 8: https://console.groq.com/docs/billing-faqs ; https://console.groq.com/docs/models ; https://console.groq.com/docs/quickstart ; https://jina.ai/embeddings/ .
