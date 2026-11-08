@@ -1,0 +1,183 @@
+{
+  "executed_on": "2026-11-08",
+  "method": "Unique lowercase term overlap; regex tokenization; stop-word removal; stable original-order ties; top 5. Not PostgreSQL, BM25 or semantic retrieval.",
+  "queries": [
+    {
+      "id": "Q01",
+      "question": "Which network is named training-proxy?",
+      "expected_source_ids": [
+        "S01"
+      ],
+      "returned": [
+        {
+          "chunk_id": "S01-C02",
+          "source_id": "S01",
+          "overlap": 2
+        },
+        {
+          "chunk_id": "S01-C01",
+          "source_id": "S01",
+          "overlap": 1
+        },
+        {
+          "chunk_id": "S01-C03",
+          "source_id": "S01",
+          "overlap": 1
+        },
+        {
+          "chunk_id": "S02-C02",
+          "source_id": "S02",
+          "overlap": 1
+        },
+        {
+          "chunk_id": "S03-C02",
+          "source_id": "S03",
+          "overlap": 1
+        }
+      ],
+      "expected_sources_in_top5": true
+    },
+    {
+      "id": "Q02",
+      "question": "How does a visitor's request reach the lab calculator?",
+      "expected_source_ids": [
+        "S01",
+        "S02"
+      ],
+      "returned": [
+        {
+          "chunk_id": "S01-C02",
+          "source_id": "S01",
+          "overlap": 2
+        },
+        {
+          "chunk_id": "S02-C01",
+          "source_id": "S02",
+          "overlap": 2
+        },
+        {
+          "chunk_id": "S02-C02",
+          "source_id": "S02",
+          "overlap": 2
+        },
+        {
+          "chunk_id": "S02-C03",
+          "source_id": "S02",
+          "overlap": 2
+        },
+        {
+          "chunk_id": "S03-C02",
+          "source_id": "S03",
+          "overlap": 2
+        }
+      ],
+      "expected_sources_in_top5": true
+    },
+    {
+      "id": "Q03",
+      "question": "Which service does calc-route select and where does it send traffic?",
+      "expected_source_ids": [
+        "S02"
+      ],
+      "returned": [
+        {
+          "chunk_id": "S02-C02",
+          "source_id": "S02",
+          "overlap": 2
+        },
+        {
+          "chunk_id": "S01-C02",
+          "source_id": "S01",
+          "overlap": 1
+        },
+        {
+          "chunk_id": "S02-C03",
+          "source_id": "S02",
+          "overlap": 1
+        },
+        {
+          "chunk_id": "S01-C01",
+          "source_id": "S01",
+          "overlap": 0
+        },
+        {
+          "chunk_id": "S01-C03",
+          "source_id": "S01",
+          "overlap": 0
+        }
+      ],
+      "expected_sources_in_top5": true
+    },
+    {
+      "id": "Q04",
+      "question": "Why would adding Docker labels alone not change this lab's route?",
+      "expected_source_ids": [
+        "S03"
+      ],
+      "returned": [
+        {
+          "chunk_id": "S03-C02",
+          "source_id": "S03",
+          "overlap": 7
+        },
+        {
+          "chunk_id": "S02-C01",
+          "source_id": "S02",
+          "overlap": 3
+        },
+        {
+          "chunk_id": "S02-C02",
+          "source_id": "S02",
+          "overlap": 3
+        },
+        {
+          "chunk_id": "S04-C02",
+          "source_id": "S04",
+          "overlap": 3
+        },
+        {
+          "chunk_id": "S01-C01",
+          "source_id": "S01",
+          "overlap": 2
+        }
+      ],
+      "expected_sources_in_top5": true
+    },
+    {
+      "id": "Q05",
+      "question": "What is the lab administrator password?",
+      "expected_source_ids": [
+        "S05"
+      ],
+      "returned": [
+        {
+          "chunk_id": "S05-C03",
+          "source_id": "S05",
+          "overlap": 2
+        },
+        {
+          "chunk_id": "S01-C01",
+          "source_id": "S01",
+          "overlap": 1
+        },
+        {
+          "chunk_id": "S01-C02",
+          "source_id": "S01",
+          "overlap": 1
+        },
+        {
+          "chunk_id": "S02-C01",
+          "source_id": "S02",
+          "overlap": 1
+        },
+        {
+          "chunk_id": "S02-C02",
+          "source_id": "S02",
+          "overlap": 1
+        }
+      ],
+      "expected_sources_in_top5": true
+    }
+  ],
+  "limits": "Source-ID matches do not establish passage sufficiency or answer quality; Q05 must remain unanswered despite retrieved text."
+}
