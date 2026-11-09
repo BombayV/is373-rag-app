@@ -1,0 +1,19 @@
+{
+  "source_count": 5,
+  "chunk_count": 15,
+  "qdrant_points_count": 15,
+  "embedding_model": "jina-embeddings-v5-text-nano",
+  "dimensions": 768,
+  "collection": "lab_jina5nano_768_v1_55277f2ab3e1",
+  "imported_at": "2026-11-08T20:58:48Z",
+  "synthetic": true,
+  "sample_chunk": "S01-C01",
+  "sample_first_four_dimensions": [
+    -0.08750535036298009,
+    -0.009215028985142995,
+    -0.03506207613859125,
+    0.009814388919135102
+  ],
+  "reimport": "unchanged",
+  "public_import_post_status_on_retry": 404
+}

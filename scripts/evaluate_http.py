@@ -29,7 +29,10 @@ def run(base, output):
                 status = response.status
         except urllib.error.HTTPError as error:
             status = error.code
-            result = json.loads(error.read())
+            try:
+                result = json.loads(error.read())
+            except ValueError:
+                result = {'error': 'Non-JSON HTTP error'}
         except (OSError, ValueError) as error:
             status = None
             result = {'error':type(error).__name__}

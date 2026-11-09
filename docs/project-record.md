@@ -31,3 +31,9 @@ Proposed FastAPI app and private persistent Qdrant store behind existing hosting
 [Reviewed learner/AI contribution record](https://github.com/BombayV/is373-portfolio/blob/main/docs/learner-decisions.md). AI drafted/researched/authored fixtures and ran Plan checks; learner selected topic and adopted proposed architecture/reason. Release December 3 requires persistence/setup/source/query evidence; Improve December 10 requires real human feedback, meaningful change and retest.
 
 [Requirement sources](review-1-sources.md) · [Portfolio record](https://github.com/BombayV/is373-portfolio/blob/main/docs/project-record.md).
+
+## Review 2 — Build
+
+- Changed: deployed the [hosted guide](https://rag.bombayv.com/) on the existing proxy. The app indexes [five fictional lab documents](../corpus/manifest.json) in private Qdrant, retrieves passages with Jina embeddings, and uses Groq to generate answers with source references.
+- Checked: [real import and vector sample](hosted-import.json), [five public HTTPS question traces and answer review](hosted-evaluation.json), [keyword baseline](keyword-baseline.json), and [boundary tests and image-build CI](https://github.com/BombayV/is373-rag-app/actions/runs/42522309984). All five questions returned the expected source IDs in the top five, including the refusal on retry. The small corpus does not establish vector superiority. The public import endpoint returned 404 on retry; the existing proxy route files retained their checksums.
+- Next: for Release, verify recovery after a scoped restart, repeat the checks, and expand the evaluation with harder paraphrases and questions that lack evidence. [Draft PR](https://github.com/BombayV/is373-rag-app/pull/1).

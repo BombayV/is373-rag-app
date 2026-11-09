@@ -1,0 +1,384 @@
+{
+  "executed_at": "2026-11-09T15:54:12.408093+00:00",
+  "base_url": "https://rag.bombayv.com",
+  "queries": [
+    {
+      "id": "Q01",
+      "question": "Which network is named training-proxy?",
+      "expected_source_ids": [
+        "S01"
+      ],
+      "http_status": 200,
+      "seconds": 2.866,
+      "expected_sources_in_top5": true,
+      "actual": {
+        "answer": "The network named **training\u2011proxy** is the shared network that connects the lab proxy and the calculator service. It is the internal network used for communication between those components. [S01-C02]",
+        "sources": [
+          {
+            "chunk_id": "S01-C02",
+            "source_id": "S01",
+            "section": "Shared network",
+            "text": "## Shared network\nThe lab proxy and calculator service are members of the training-proxy network. Within this fictional lab, the proxy reaches the calculator at http://calculator:8000. The application port is 8000 inside the shared network; no public calculator administration port is part of the scenario.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s01-network.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.6332525
+          },
+          {
+            "chunk_id": "S02-C02",
+            "source_id": "S02",
+            "section": "Route chain",
+            "text": "## Route chain\nIn the lab design, the entrypoint websecure receives HTTPS requests. Router calc-route matches the hostname calc.example.test and chooses service calc-service. That service forwards requests to http://calculator:8000 on training-proxy. The hostname is illustrative and not a working public URL.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s02-routing.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.52104294
+          },
+          {
+            "chunk_id": "S01-C01",
+            "source_id": "S01",
+            "section": "Lab network",
+            "text": "# Lab network\n\nThis is a fictional teaching scenario, not a report about any real server.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s01-network.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.44126952
+          },
+          {
+            "chunk_id": "S04-C02",
+            "source_id": "S04",
+            "section": "TLS boundary",
+            "text": "## TLS boundary\nThe lab design assigns external HTTPS termination to the existing proxy on websecure. The calculator receives HTTP from the proxy across the private shared network. A browser lock or successful HTTPS connection alone does not establish correct arithmetic or correct source citations.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s04-tls.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.38892257
+          },
+          {
+            "chunk_id": "S01-C03",
+            "source_id": "S01",
+            "section": "Scope",
+            "text": "## Scope\nA learner should check the source-supported network explanation before proposing any host change. The fictional names are not credentials or commands to run.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s01-network.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.37155855
+          }
+        ],
+        "context": "[S01-C02] ## Shared network\nThe lab proxy and calculator service are members of the training-proxy network. Within this fictional lab, the proxy reaches the calculator at http://calculator:8000. The application port is 8000 inside the shared network; no public calculator administration port is part of the scenario.\n\n[S02-C02] ## Route chain\nIn the lab design, the entrypoint websecure receives HTTPS requests. Router calc-route matches the hostname calc.example.test and chooses service calc-service. That service forwards requests to http://calculator:8000 on training-proxy. The hostname is illustrative and not a working public URL.\n\n[S01-C01] # Lab network\n\nThis is a fictional teaching scenario, not a report about any real server.\n\n[S04-C02] ## TLS boundary\nThe lab design assigns external HTTPS termination to the existing proxy on websecure. The calculator receives HTTP from the proxy across the private shared network. A browser lock or successful HTTPS connection alone does not establish correct arithmetic or correct source citations.\n\n[S01-C03] ## Scope\nA learner should check the source-supported network explanation before proposing any host change. The fictional names are not credentials or commands to run.",
+        "embedding_model": "jina-embeddings-v5-text-nano",
+        "generation_model": "openai/gpt-oss-20b",
+        "synthetic": true
+      },
+      "answer_support_review": "AI review: S01-C02 supports the shared-network explanation."
+    },
+    {
+      "id": "Q02",
+      "question": "How does a visitor's request reach the lab calculator?",
+      "expected_source_ids": [
+        "S01",
+        "S02"
+      ],
+      "http_status": 200,
+      "seconds": 7.49,
+      "expected_sources_in_top5": true,
+      "actual": {
+        "answer": "A visitor\u2019s request reaches the calculator through the following chain:\n\n1. The visitor connects to the external HTTPS endpoint on **websecure**.  \n2. **websecure** routes the request to **calc-route** based on the hostname `calc.example.test`.  \n3. **calc-route** selects the service **calc-service**.  \n4. **calc-service** forwards the request to the internal address `http://calculator:8000` on the **training\u2011proxy** network.  \n5. The **calculator** service receives the HTTP request on port\u202f8000 and processes it.  \n\nThis flow is described in the lab design: the proxy and calculator share the training\u2011proxy network, and the router chain passes the request from websecure \u2192 calc\u2011route \u2192 calc\u2011service \u2192 calculator:[S02-C02, S02-C03, S01-C02, S04-C02].",
+        "sources": [
+          {
+            "chunk_id": "S02-C01",
+            "source_id": "S02",
+            "section": "Lab request route",
+            "text": "# Lab request route\n\nThis is a fictional teaching scenario, not a report about any real server.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s02-routing.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.55631113
+          },
+          {
+            "chunk_id": "S02-C03",
+            "source_id": "S02",
+            "section": "Relationships",
+            "text": "## Relationships\ncalc-route uses websecure and selects calc-service. calc-service targets calculator. These relations describe this lab design only.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s02-routing.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.53284866
+          },
+          {
+            "chunk_id": "S01-C02",
+            "source_id": "S01",
+            "section": "Shared network",
+            "text": "## Shared network\nThe lab proxy and calculator service are members of the training-proxy network. Within this fictional lab, the proxy reaches the calculator at http://calculator:8000. The application port is 8000 inside the shared network; no public calculator administration port is part of the scenario.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s01-network.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.5195751
+          },
+          {
+            "chunk_id": "S04-C02",
+            "source_id": "S04",
+            "section": "TLS boundary",
+            "text": "## TLS boundary\nThe lab design assigns external HTTPS termination to the existing proxy on websecure. The calculator receives HTTP from the proxy across the private shared network. A browser lock or successful HTTPS connection alone does not establish correct arithmetic or correct source citations.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s04-tls.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.47154522
+          },
+          {
+            "chunk_id": "S02-C02",
+            "source_id": "S02",
+            "section": "Route chain",
+            "text": "## Route chain\nIn the lab design, the entrypoint websecure receives HTTPS requests. Router calc-route matches the hostname calc.example.test and chooses service calc-service. That service forwards requests to http://calculator:8000 on training-proxy. The hostname is illustrative and not a working public URL.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s02-routing.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.46074346
+          }
+        ],
+        "context": "[S02-C01] # Lab request route\n\nThis is a fictional teaching scenario, not a report about any real server.\n\n[S02-C03] ## Relationships\ncalc-route uses websecure and selects calc-service. calc-service targets calculator. These relations describe this lab design only.\n\n[S01-C02] ## Shared network\nThe lab proxy and calculator service are members of the training-proxy network. Within this fictional lab, the proxy reaches the calculator at http://calculator:8000. The application port is 8000 inside the shared network; no public calculator administration port is part of the scenario.\n\n[S04-C02] ## TLS boundary\nThe lab design assigns external HTTPS termination to the existing proxy on websecure. The calculator receives HTTP from the proxy across the private shared network. A browser lock or successful HTTPS connection alone does not establish correct arithmetic or correct source citations.\n\n[S02-C02] ## Route chain\nIn the lab design, the entrypoint websecure receives HTTPS requests. Router calc-route matches the hostname calc.example.test and chooses service calc-service. That service forwards requests to http://calculator:8000 on training-proxy. The hostname is illustrative and not a working public URL.",
+        "embedding_model": "jina-embeddings-v5-text-nano",
+        "generation_model": "openai/gpt-oss-20b",
+        "synthetic": true
+      },
+      "answer_support_review": "AI review: The named route and internal destination match S02-C02 and S01-C02; websecure is an entrypoint and the router performs hostname matching."
+    },
+    {
+      "id": "Q03",
+      "question": "Which service does calc-route select and where does it send traffic?",
+      "expected_source_ids": [
+        "S02"
+      ],
+      "http_status": 200,
+      "seconds": 4.767,
+      "expected_sources_in_top5": true,
+      "actual": {
+        "answer": "calc\u2011route selects the **calc\u2011service** and forwards the traffic to **http://calculator:8000** on the training\u2011proxy network\u3010S02-C03\u3011\u3010S02-C02\u3011",
+        "sources": [
+          {
+            "chunk_id": "S02-C03",
+            "source_id": "S02",
+            "section": "Relationships",
+            "text": "## Relationships\ncalc-route uses websecure and selects calc-service. calc-service targets calculator. These relations describe this lab design only.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s02-routing.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.63793397
+          },
+          {
+            "chunk_id": "S02-C02",
+            "source_id": "S02",
+            "section": "Route chain",
+            "text": "## Route chain\nIn the lab design, the entrypoint websecure receives HTTPS requests. Router calc-route matches the hostname calc.example.test and chooses service calc-service. That service forwards requests to http://calculator:8000 on training-proxy. The hostname is illustrative and not a working public URL.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s02-routing.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.63180125
+          },
+          {
+            "chunk_id": "S01-C02",
+            "source_id": "S01",
+            "section": "Shared network",
+            "text": "## Shared network\nThe lab proxy and calculator service are members of the training-proxy network. Within this fictional lab, the proxy reaches the calculator at http://calculator:8000. The application port is 8000 inside the shared network; no public calculator administration port is part of the scenario.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s01-network.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.4678444
+          },
+          {
+            "chunk_id": "S02-C01",
+            "source_id": "S02",
+            "section": "Lab request route",
+            "text": "# Lab request route\n\nThis is a fictional teaching scenario, not a report about any real server.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s02-routing.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.45320413
+          },
+          {
+            "chunk_id": "S04-C02",
+            "source_id": "S04",
+            "section": "TLS boundary",
+            "text": "## TLS boundary\nThe lab design assigns external HTTPS termination to the existing proxy on websecure. The calculator receives HTTP from the proxy across the private shared network. A browser lock or successful HTTPS connection alone does not establish correct arithmetic or correct source citations.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s04-tls.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.39116096
+          }
+        ],
+        "context": "[S02-C03] ## Relationships\ncalc-route uses websecure and selects calc-service. calc-service targets calculator. These relations describe this lab design only.\n\n[S02-C02] ## Route chain\nIn the lab design, the entrypoint websecure receives HTTPS requests. Router calc-route matches the hostname calc.example.test and chooses service calc-service. That service forwards requests to http://calculator:8000 on training-proxy. The hostname is illustrative and not a working public URL.\n\n[S01-C02] ## Shared network\nThe lab proxy and calculator service are members of the training-proxy network. Within this fictional lab, the proxy reaches the calculator at http://calculator:8000. The application port is 8000 inside the shared network; no public calculator administration port is part of the scenario.\n\n[S02-C01] # Lab request route\n\nThis is a fictional teaching scenario, not a report about any real server.\n\n[S04-C02] ## TLS boundary\nThe lab design assigns external HTTPS termination to the existing proxy on websecure. The calculator receives HTTP from the proxy across the private shared network. A browser lock or successful HTTPS connection alone does not establish correct arithmetic or correct source citations.",
+        "embedding_model": "jina-embeddings-v5-text-nano",
+        "generation_model": "openai/gpt-oss-20b",
+        "synthetic": true
+      },
+      "answer_support_review": "AI review: S02-C02 and S02-C03 support the service and destination."
+    },
+    {
+      "id": "Q04",
+      "question": "Why would adding Docker labels alone not change this lab's route?",
+      "expected_source_ids": [
+        "S03"
+      ],
+      "http_status": 200,
+      "seconds": 4.032,
+      "expected_sources_in_top5": true,
+      "actual": {
+        "answer": "Adding Docker labels alone would not change this lab\u2019s route because the routing configuration is sourced exclusively from a file provider (`calculator.yml`). Docker labels are not used as a configuration source in this scenario, so any labels added to containers would have no effect on the defined route.\u3010S03-C02\u3011",
+        "sources": [
+          {
+            "chunk_id": "S03-C02",
+            "source_id": "S03",
+            "section": "Selected provider",
+            "text": "## Selected provider\nThe lab scenario enables only a file provider. Its route definition is in a fictional file named calculator.yml. Docker labels are not the configuration source in this scenario. Adding labels alone therefore does not alter this lab route.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s03-providers.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.82194066
+          },
+          {
+            "chunk_id": "S02-C01",
+            "source_id": "S02",
+            "section": "Lab request route",
+            "text": "# Lab request route\n\nThis is a fictional teaching scenario, not a report about any real server.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s02-routing.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.51971865
+          },
+          {
+            "chunk_id": "S03-C01",
+            "source_id": "S03",
+            "section": "Lab configuration provider",
+            "text": "# Lab configuration provider\n\nThis is a fictional teaching scenario, not a report about any real server.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s03-providers.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.471089
+          },
+          {
+            "chunk_id": "S02-C02",
+            "source_id": "S02",
+            "section": "Route chain",
+            "text": "## Route chain\nIn the lab design, the entrypoint websecure receives HTTPS requests. Router calc-route matches the hostname calc.example.test and chooses service calc-service. That service forwards requests to http://calculator:8000 on training-proxy. The hostname is illustrative and not a working public URL.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s02-routing.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.44695306
+          },
+          {
+            "chunk_id": "S04-C01",
+            "source_id": "S04",
+            "section": "Lab TLS ownership",
+            "text": "# Lab TLS ownership\n\nThis is a fictional teaching scenario, not a report about any real server.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s04-tls.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.44272485
+          }
+        ],
+        "context": "[S03-C02] ## Selected provider\nThe lab scenario enables only a file provider. Its route definition is in a fictional file named calculator.yml. Docker labels are not the configuration source in this scenario. Adding labels alone therefore does not alter this lab route.\n\n[S02-C01] # Lab request route\n\nThis is a fictional teaching scenario, not a report about any real server.\n\n[S03-C01] # Lab configuration provider\n\nThis is a fictional teaching scenario, not a report about any real server.\n\n[S02-C02] ## Route chain\nIn the lab design, the entrypoint websecure receives HTTPS requests. Router calc-route matches the hostname calc.example.test and chooses service calc-service. That service forwards requests to http://calculator:8000 on training-proxy. The hostname is illustrative and not a working public URL.\n\n[S04-C01] # Lab TLS ownership\n\nThis is a fictional teaching scenario, not a report about any real server.",
+        "embedding_model": "jina-embeddings-v5-text-nano",
+        "generation_model": "openai/gpt-oss-20b",
+        "synthetic": true
+      },
+      "answer_support_review": "AI review: S03-C02 supports the file-provider explanation and why labels alone have no effect."
+    },
+    {
+      "id": "Q05",
+      "question": "What is the lab administrator password?",
+      "expected_source_ids": [
+        "S05"
+      ],
+      "http_status": 200,
+      "seconds": 0.787,
+      "expected_sources_in_top5": true,
+      "actual": {
+        "answer": "Insufficient evidence.",
+        "sources": [
+          {
+            "chunk_id": "S03-C01",
+            "source_id": "S03",
+            "section": "Lab configuration provider",
+            "text": "# Lab configuration provider\n\nThis is a fictional teaching scenario, not a report about any real server.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s03-providers.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.5000412
+          },
+          {
+            "chunk_id": "S05-C03",
+            "source_id": "S05",
+            "section": "Access and unknowns",
+            "text": "## Access and unknowns\nImport and administration actions are reserved for an authorized operator. Public readers may ask documentation questions. No administrator password, actual server IP address or production outage cause is supplied in these documents.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s05-checks.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.4919258
+          },
+          {
+            "chunk_id": "S04-C01",
+            "source_id": "S04",
+            "section": "Lab TLS ownership",
+            "text": "# Lab TLS ownership\n\nThis is a fictional teaching scenario, not a report about any real server.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s04-tls.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.4745345
+          },
+          {
+            "chunk_id": "S05-C01",
+            "source_id": "S05",
+            "section": "Lab verification policy",
+            "text": "# Lab verification policy\n\nThis is a fictional teaching scenario, not a report about any real server.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s05-checks.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.45555985
+          },
+          {
+            "chunk_id": "S02-C01",
+            "source_id": "S02",
+            "section": "Lab request route",
+            "text": "# Lab request route\n\nThis is a fictional teaching scenario, not a report about any real server.",
+            "url": "https://github.com/BombayV/is373-rag-app/blob/main/corpus/s02-routing.md",
+            "version": "1",
+            "synthetic": true,
+            "model": "jina-embeddings-v5-text-nano",
+            "score": 0.4397419
+          }
+        ],
+        "context": "[S03-C01] # Lab configuration provider\n\nThis is a fictional teaching scenario, not a report about any real server.\n\n[S05-C03] ## Access and unknowns\nImport and administration actions are reserved for an authorized operator. Public readers may ask documentation questions. No administrator password, actual server IP address or production outage cause is supplied in these documents.\n\n[S04-C01] # Lab TLS ownership\n\nThis is a fictional teaching scenario, not a report about any real server.\n\n[S05-C01] # Lab verification policy\n\nThis is a fictional teaching scenario, not a report about any real server.\n\n[S02-C01] # Lab request route\n\nThis is a fictional teaching scenario, not a report about any real server.",
+        "embedding_model": "jina-embeddings-v5-text-nano",
+        "generation_model": "openai/gpt-oss-20b",
+        "synthetic": true
+      },
+      "answer_support_review": "AI review: The answer declines to provide an unsupported password; S05-C03 states none is supplied."
+    }
+  ],
+  "limits": "Tiny synthetic corpus; retrieval matches are separate from answer support. No broad benchmark claim.",
+  "retry_note": "Initial Q05 request returned a non-JSON HTTP error; a targeted retry returned HTTP 200."
+}
